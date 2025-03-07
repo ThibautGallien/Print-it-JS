@@ -29,7 +29,7 @@ slides.forEach((_, index) => {
   dot.classList.add("dot");
   if (index === 0) dot.classList.add("dot_selected");
   dot.addEventListener("click", () => goToSlide(index));
-  dotsContainer.appendChild(dot);
+  if (dotsContainer != null) dotsContainer.appendChild(dot);
 });
 
 const dots = document.querySelectorAll(".dot");
@@ -37,6 +37,7 @@ const dots = document.querySelectorAll(".dot");
 function updateCarousel() {
   dots.forEach((dot) => dot.classList.remove("dot_selected"));
   dots[currentIndex].classList.add("dot_selected");
+  bannerImg.src = slides[currentIndex].image;
 }
 
 function goToSlide(index) {
